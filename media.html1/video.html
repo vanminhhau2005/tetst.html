@@ -1,0 +1,50 @@
+<!DOCTYPE html> 
+<html lang="vi"> 
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htpp:mo-video</title>
+</head>
+<body> 
+    <!-- Thêm controls để có thể kiểm tra video thủ công -->
+     <!--hoặc dùng autoplay-->
+    <video id="video1" width="600" height="400" controls>
+        <source src="c:\Users\vanmi\Downloads\2929269092610015323.mp4" type="video/mp4">
+        <source src="c:\Users\vanmi\Downloads\videoplayback.ogg" type="video/ogg">
+        <!--Edge Chromium (phiên bản từ 79 trở đi): Có hỗ trợ OGG.
+        Edge Legacy (trước phiên bản 79): Không hỗ trợ OGG.-->
+        <!--đươngg link kèm .mp4,ogg-->
+    </video>
+</div> 
+<!--thẻ <script> trong HTML để phát/tạm dừng video, phóng to, thu nhỏ và đặt lại kích thước bình thường cho video-->
+<script> 
+    var myVideo = document.getElementById("video1"); 
+
+    function playPause() { 
+        if (myVideo.paused) //mở/ngừng
+            myVideo.play(); 
+        else 
+            myVideo.pause(); 
+    } 
+
+    function makeBig() {  //phóng to 
+        myVideo.width = 560; 
+    } 
+
+    function makeSmall() { //thu nhỏ
+        myVideo.width = 320;
+    } 
+
+    function makeNormal() { //Khôi phục về kích thước mặc định.
+        myVideo.width = 420; 
+    } 
+</script> 
+<!--tạo vùng chứa-->
+<div style="text-align:center"> 
+    <button onclick="playPause()">Play/Pause</button> 
+    <button onclick="makeBig()">Big</button>
+    <button onclick="makeSmall()">Small</button>
+    <button onclick="makeNormal()">Norma</button>
+    <br><br>
+</body> 
+</html>

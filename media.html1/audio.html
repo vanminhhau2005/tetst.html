@@ -1,0 +1,71 @@
+<!DOCTYPE html> 
+<html lang="vi"> 
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>htpp:mo_am_thanh</title>
+</head>
+<body> 
+
+    <h2>html audio</h2>
+
+    <!-- Thẻ Audio có ID để JavaScript có thể truy cập -->
+    <!--controls: Hiển thị các điều khiển phát lại như phát, tạm dừng và âm lượng-->
+    <!--autoplay: Tự động phát tệp âm thanh khi trang được tải-->
+    <audio id="myAudio" controls autoplay>
+        <source src="file:///C:/Users/vanmi/Downloads/Tiếng dê cười.mp3" type="audio/mp3">
+        <source src="c:\Users\vanmi\Downloads\videoplayback.ogg" type="video/ogg">
+        <!--Edge Chromium (phiên bản từ 79 trở đi): Có hỗ trợ OGG.
+        Edge Legacy (trước phiên bản 79): Không hỗ trợ OGG.-->
+        <!--đươngg link kèm .mp4,ogg-->
+    </audio>
+
+    <br><br>
+
+    <!-- Các nút điều khiển -->
+    <button onclick="playAudio()">▶️ Phát</button>
+    <button onclick="pauseAudio()">⏸️ Tạm dừng</button>
+    <button onclick="stopAudio()">⏹️ Dừng hẳn</button>
+    <br><br>
+    <button onclick="volumeUp()">🔊 Tăng âm lượng</button>
+    <button onclick="volumeDown()">🔉 Giảm âm lượng</button>
+
+    <script>
+        // Lấy thẻ audio theo ID đúng
+        let audio = document.getElementById("myAudio");
+
+        // Phát nhạc
+        function playAudio() {
+            audio.play();
+        }
+
+        // Tạm dừng nhạc
+        function pauseAudio() {
+            audio.pause();
+        }
+
+        // Dừng hẳn (tạm dừng + tua về đầu)
+        function stopAudio() {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+         
+        // Tăng âm lượng (giá trị tối đa là 1.0)
+        //tối đa là 1.0
+        function volumeUp() {
+            if (audio.volume < 1.0) {
+                audio.volume += 0.1;
+            }
+        }
+
+        // Giảm âm lượng (giá trị tối thiểu là 0.0)
+        //giảm 0
+        function volumeDown() {
+            if (audio.volume > 0.0) {
+                audio.volume -= 0.1;
+            }
+        }
+    </script>
+
+</body> 
+</html>
